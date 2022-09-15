@@ -7,12 +7,15 @@
             <!-- <t t-call="web.external_layout"> -->
                <div class="page">
                     <h1>Faktur Transaksi wizard PDF</h1>
+                        <div>=================================================================================</div>
+                        <div>.</div>
                         <div class="row">
                             <div class="col-4">Nama    :</div>
                             <div class="col-8">
                                 <t t-esc="form['konsumen_id'][1]"/>
                             </div>
                         </div>
+                        <div>.</div>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -24,6 +27,9 @@
                                     </th>
                                     <th>
                                         <span>Total Pembayaran</span>
+                                    </th>
+                                    <th>
+                                        <span>Status</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -37,6 +43,9 @@
                                     </td>
                                     <td>
                                         <span t-esc="line['total_bayar']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['state']"/>
                                     </td>
                                 </tr>
                             </t>

@@ -12,7 +12,7 @@ class PartnerXlsx(models.AbstractModel):
 
         sheet.write(0, 0, 'Tanggal Laporan')
         sheet.write(0, 1, str(self.tgl_lap))
-        sheet.write(2, 0, 'Nama Perusahaan')
+        sheet.write(2, 0, 'Nama Supplier')
         sheet.write(2, 1, 'ALamat')
         sheet.write(2, 2, 'No Telepon')
         sheet.write(2, 3, 'Daftar Produk')

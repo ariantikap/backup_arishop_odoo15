@@ -8,7 +8,6 @@ class respartner(models.Model):
     id_konsumen = fields.Char(string='Id Konsumen',
                                  required=False,
                                  domain="[('is_konsumen','=', True)]")
-    poin = fields.Integer(string='Poin', domain="[('is_konsumen','=', True)]")
     
     
     

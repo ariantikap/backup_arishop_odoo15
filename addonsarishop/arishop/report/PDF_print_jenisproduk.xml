@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_jenisproduk_pdf" name="template_name">
+        <t t-call="web.html_container" >
+            <t t-call="web.internal_layout">
+               <div class='page'>
+                    <h1><b>Daftar Jenis Produk</b></h1>
+                    <div>=================================================================================</div>
+                    <t t-foreach='docs' t-as='d'>
+                        <div>.</div>
+                        <div class='row'>
+                            <div class='col-2'>Jenis Produk   :</div>
+                            <div class='col-8'><span t-field='d.name'/></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-2'>Kode Jenis          :</div>
+                            <div class='col-8'><span t-field='d.kode_jenis'/></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-2'>Kode Rak    :</div>
+                            <div class='col-8'><span t-field='d.kode_rak'/></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-2'>Jumlah Produk  :</div>
+                            <div class='col-8'><span t-field='d.jml_produk'/></div>
+                        </div>
+                        <div>
+                            <!-- looping untuk pdf -->
+                            <t t-foreach='d.produk_ids' t-as='ds'>
+                                <div class='row'>
+                                    <div class='col-2'>Produk : </div>
+                                    <div class='col-2'><span t-field='ds.name'/></div>
+                                    <div class='col-1'>stok : </div>
+                                    <div class='col-1'><span t-field='ds.stok'/></div>
+                                    <div class='col-2'>Supplier : </div>
+                                    <div class='col-4'><span t-field='ds.supplier_id'/></div>
+                                </div>
+                            </t> 
+                        </div> 
+                        <div>.</div>
+                        <div>=================================================================================</div>
+                    </t>
+               </div> 
+            </t>
+        </t>    
+    </template>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_supplier_pdf" name="template_name">
+        <t t-call="web.html_container" >
+            <t t-call="web.internal_layout">
+               <div class='page'>
+                    <h1><b>Daftar Supplier</b></h1>
+                    <div>=================================================================================</div>
+                    <t t-foreach='docs' t-as='d'>
+                        <div>.</div>
+                        <div class='row'>
+                            <div class='col-2'>Nama Supplier   :</div>
+                            <div class='col-8'><span t-field='d.name'/></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-2'>Alamat        :</div>
+                            <div class='col-8'><span t-field='d.alamat'/></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-2'>No Telepon   :</div>
+                            <div class='col-8'><span t-field='d.no_telp'/></div>
+                        </div>
+                        <div>
+                            <!-- looping untuk pdf -->
+                            <t t-foreach='d.produk_id' t-as='ds'>
+                                <div class='row'>
+                                    <div class='col-2'>Produk : </div>
+                                    <div class='col-2'><span t-field='ds.name'/></div>
+                                    <div class='col-1'>Jenis : </div>
+                                    <div class='col-2'><span t-field='ds.jenisproduk_id'/></div>
+                                    <div class='col-2'>Harga Beli : </div>
+                                    <div class='col-2'><span t-field='ds.harga_beli'/></div>
+                                </div>
+                            </t> 
+                        </div> 
+                        <div>.</div>
+                        <div>=================================================================================</div>
+                    </t>
+               </div> 
+            </t>
+        </t>    
+    </template>
+</odoo>

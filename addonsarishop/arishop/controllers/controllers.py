@@ -3,6 +3,21 @@ from odoo.http import request
 import json
 
 class arishop(http.Controller):
+
+    @http.route('/arishop/getjenisproduk', auth='public', methods=['GET'])
+    def getjenisproduk(self, **kw):
+        jenisproduk = request.env['arishop.jenisproduk'].search([])
+        isi = []
+        for jprd in jenisproduk:
+            isi.append({
+                'name' : jprd.name,
+                'kode_jenis' : jprd.kode_jenis,
+                'kode_rak' : jprd.kode_rak,
+                'jml_produk' : jprd.jml_produk,
+                'daftar' : jprd.daftar  
+            })
+        return json.dumps(isi)
+    
     @http.route('/arishop/getproduk', auth='public', methods=['GET'])
     def getproduk(self, **kw):
         produk = request.env['arishop.produk'].search([])

@@ -13,7 +13,6 @@
             </xpath>
             <xpath expr="//field[@name='vat']" position="after">
                 <field name="is_konsumen"/>
-                <field name="poin"/>
             </xpath>
             <xpath expr="//field[@name='display_name']" position="before">
                 <field name="id_konsumen"/>
@@ -36,7 +35,6 @@
             </xpath>
             <xpath expr="//field[@name='vat']" position="after">
                 <field name="is_konsumen"/>
-                <field name="poin"/>
             </xpath>
             <xpath expr="//field[@name='vat']" position="after">
                 <field name="id_konsumen"/>

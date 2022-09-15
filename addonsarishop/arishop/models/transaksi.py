@@ -113,6 +113,11 @@ class transaksi(models.Model):
                 else:
                     pass
         return record
+    
+    # SQL Constraints
+    _sql_constraints = [
+        ('nota_unique','UNIQUE (name)','Nomor Nota Tidak Boleh Sama !!!')
+        ]
 
 
 class detailjual(models.Model):

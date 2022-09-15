@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_faktur_pdf" name="template_name">
+        <t t-call="web.html_container" >
+            <t t-call="web.internal_layout">
+               <div class='page'>
+                    <h2><b>Faktur Transaksi Internal</b></h2>
+                    <div>=================================================================================</div>
+                    <t t-foreach='docs' t-as='d'>
+                            <div>.</div>
+                            <div class='row'>
+                                <div class='col-3'>Tgl. Transaksi   :</div>
+                                <div class='col-8'><span t-field='d.tgl_beli'/></div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-3'>No Nota       :</div>
+                                <div class='col-8'><span t-field='d.name'/></div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-3'>Nama Pembeli    :</div>
+                                <div class='col-3'><span t-field='d.nama_pembeli'/></div>
+                                <div class='col-1'>ID :</div>
+                                <div class='col-1'><span t-field='d.id_konsumen'/></div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-3'>Status          :</div>
+                                <div class='col-8'><span t-field='d.state'/></div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-3'>Total Pembayaran :</div>
+                                <div class='col-8'><span t-field='d.total_bayar'/></div>
+                            </div>
+                            <div>
+                                <!-- looping untuk pdf -->
+                                <t t-foreach='d.detailjual_ids' t-as='ds'>
+                                    <div class='row'>
+                                        <div class='col-3'>Nama Produk : </div>
+                                        <div class='col-3'><span t-field='ds.produk_id.name'/></div>
+                                        <div class='col-1'>/pcs : </div>
+                                        <div class='col-1'><span t-field='ds.harga_satuan'/></div>
+                                        <div class='col-1'>Qty : </div>
+                                        <div class='col-1'><span t-field='ds.qty'/></div>
+                                    </div>
+                                </t> 
+                            </div> 
+                            <div>.</div>
+                            <div>===================================================================================</div>
+                    </t>
+               </div> 
+            </t>
+        </t>    
+    </template>
+</odoo>
